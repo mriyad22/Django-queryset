@@ -9,7 +9,7 @@ def data_veiw(request):
 
 
 def job_view(request):
-    jobs = JobModel.objects.all()
+    jobs = JobModel.objects.select_related('recruiter', 'category') 
     
     context = {
         'jobs': jobs
