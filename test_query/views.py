@@ -23,7 +23,8 @@ def job_detail_view(request):
     jobs = JobModel.objects.prefetch_related(
         Prefetch(
             'applications',
-            queryset=ApplicationModel.objects.select_related('applicant')
+            queryset=ApplicationModel.objects.select_related('applicant'),
+            to_attr='seeker'
         )
     )
     

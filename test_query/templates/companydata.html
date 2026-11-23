@@ -8,7 +8,8 @@
         <h1>{{job.title}}</h1>
 
             
-            {% for a in job.applications.all %}
+            {% for a in job.seeker %}
+                <p>{{a.applied_at}}</p>
                 <p>{{a.applicant.username}}</p>
                 
             {% endfor %}
