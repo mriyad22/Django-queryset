@@ -9,7 +9,7 @@
 
             
             {% for a in job.applications.all %}
-                <p>{{a.applied_at}}</p>
+                <p>{{a.applicant.username}}</p>
                 
             {% endfor %}
                 

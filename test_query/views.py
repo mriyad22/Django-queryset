@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Prefetch
 from .models import *
 
 
@@ -19,7 +20,12 @@ def job_view(request):
 
 
 def job_detail_view(request):
-    jobs = JobModel.objects.prefetch_related('applications')
+    jobs = JobModel.objects.prefetch_related(
+        Prefetch(
+            'applications',
+            queryset=ApplicationModel.objects.select_related('applicant')
+        )
+    )
     
     context = {
         'jobs': jobs
