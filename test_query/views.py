@@ -19,17 +19,19 @@ def job_view(request):
 
 
 
-def job_detail_view(request):
+def job_applicant_view(request, job_id):
     jobs = JobModel.objects.prefetch_related(
         Prefetch(
             'applications',
             queryset=ApplicationModel.objects.select_related('applicant'),
             to_attr='seeker'
         )
-    )
+    ).get(id = job_id)
+    
+    # jobs = JobModel.objects.get(id = job_id)
     
     context = {
-        'jobs': jobs
+        'job': jobs
     }
     return render(request, 'companydata.html', context)
 
