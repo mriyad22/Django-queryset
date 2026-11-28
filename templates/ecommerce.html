@@ -3,11 +3,32 @@
 {% block content %}
    <div class="container">
     <h3> Ecommerce data here </h3>
-    
-    {% for p in products %}
-    <p>{{p.name}} --Orders: {{p.total_orders}} | total_quantity:{{p.total_quantity}} || Reviews: {{p.total_reviews}} || Rating:{{p.average_ratings}} | max: {{p.max_ratings}} | min: {{p.min_ratings}}</p>
-        
-    {% endfor %}
+
+      <div class="row">
+         {% for p in products %}
+         <div class="col-md-4 mb-4">
+               <div class="card h-100">   
+                  <div class="card-header">
+                     <b>Pname: {{ p.name }}</b>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                     <li class="list-group-item">Orders: {{ p.total_orders }}</li>
+                     <li class="list-group-item">total_quantity: {{ p.total_quantity }}</li>
+                     <li class="list-group-item">Reviews: {{p.total_reviews}}</li>
+                     <li class="list-group-item">Rating: {{p.average_ratings}}</li>
+                     <li class="list-group-item">max: {{p.max_ratings}}</li>
+                     <li class="list-group-item">min: {{p.min_ratings}}</li>
+                     <li class="list-group-item">Original price: <del>{{p.price}}</del> (-{{p.discount}})</li>
+                     <li class="list-group-item">discount price: {{p.final_price}} </li>
+                     <li class="list-group-item">
+                           <a href="#">View details</a>
+
+                     </li>
+                  </ul>                  
+               </div>
+         </div>
+         {% endfor %}
+      </div>
    </div>
         
 
