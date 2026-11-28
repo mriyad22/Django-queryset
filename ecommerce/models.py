@@ -13,7 +13,7 @@ class Product(models.Model):
     discount = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     
     def __str__(self):
-        return self.name
+        return f"{self.user} - {self.user.username}"
 
 class Order(models.Model):
     product = models.ForeignKey(

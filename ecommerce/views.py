@@ -14,7 +14,7 @@ F() Expression is used to compare or perform calculations involving the value of
 
 def ecommerce(request):
     # products = Product.objects.all()
-    products = Product.objects.annotate(
+    products = Product.objects.filter(user = request.user).annotate(
         total_orders = Count('product_order', distinct=True), #--> Keep in mind that `total_orders` is not a database field in your model; it is a calculated attribute derived from the QuerySet.
         total_reviews = Count('reviews', distinct=True),
         average_ratings = Avg('reviews__rating', distinct=True, default=0.0),
