@@ -5,7 +5,7 @@
     <h3> Ecommerce data here </h3>
     
     {% for p in products %}
-    <p>{{p.name}} --Orders: {{p.total_orders}} | total_quantity:{{p.total_quantity}} || Reviews: {{p.total_reviews}} || Rating:{{p.average_ratings}}</p>
+    <p>{{p.name}} --Orders: {{p.total_orders}} | total_quantity:{{p.total_quantity}} || Reviews: {{p.total_reviews}} || Rating:{{p.average_ratings}} | max: {{p.max_ratings}} | min: {{p.min_ratings}}</p>
         
     {% endfor %}
    </div>
