@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <div class="container">
+    <h3> Ecommerce data here </h3>
+    
+    {% for p in products %}
+    <p>{{p.name}} --Orders: {{p.total_orders}} | total_quantity:{{p.total_quantity}} || Reviews: {{p.total_reviews}} || Rating:{{p.average_ratings}}</p>
+        
+    {% endfor %}
+   </div>
+        
+
+{% endblock %}
